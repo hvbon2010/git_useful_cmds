@@ -27,6 +27,9 @@ List all branchs of git project:
 # Create git patch for specific commit
 `git format-patch -1 <commit_sha>`
 
+# Apply patch
+`git apply patch.diff`
+
 # Edit a commit
 `git commit --amend`
 
