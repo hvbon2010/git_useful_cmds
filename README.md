@@ -19,6 +19,11 @@ Git status in a subfolder only:
 
 `cd path\to\folder ; git status .`
 
+# Git branch
+List all branchs of git project:
+
+`git branch -a`
+
 # Create git patch for specific commit
 `git format-patch -1 <commit_sha>`
 
@@ -81,4 +86,25 @@ Step 2: resolve all conflict files and add changed files.
 Step 3: Clear the change ID in commit message.
 
 Step 4: Git push.
+
+# Gerrit push commit
+`git push <abc/xyz> HEAD:refs/for/<branch>`
+
+Example: `git push origin HEAD:refs/for/rvc-wear-dev-sw5100`
+
+Git push private commit:
+
+`git push <abc/xyz> HEAD:refs/for/<branch>%private`
+
+Git push remove private status:
+
+`git push <abc/xyz> HEAD:refs/for/<branch>%remove-private`
+
+Git push commit with a topic:
+
+`git push <abc/xyz> HEAD:refs/for/<branch>%topic=abc`
+
+OR:
+
+`git push <abc/xyz> HEAD:refs/for/<branch> -o topic=abc`
 
