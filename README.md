@@ -111,3 +111,5 @@ OR:
 
 `git push <abc/xyz> HEAD:refs/for/<branch> -o topic=abc`
 
+# Get history of a file
+`git log -p -- [path_to_file]`
