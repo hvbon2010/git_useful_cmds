@@ -116,5 +116,6 @@ OR:
 
 # Change author for CL pushed
 `git commit --amend --reset-author --no-edit`
+
 `git push <abc/xyz> HEAD:refs/for/<branch>`
 
