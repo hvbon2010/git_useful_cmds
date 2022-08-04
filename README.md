@@ -119,3 +119,8 @@ OR:
 
 `git push <abc/xyz> HEAD:refs/for/<branch>`
 
+# Log reserved
+This is very useful to get the first commit.
+
+`git log --reverse`
+
