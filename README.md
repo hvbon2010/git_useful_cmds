@@ -124,3 +124,5 @@ This is very useful to get the first commit.
 
 `git log --reverse`
 
+# Undo "git commit --amend" instead "git commit"
+`git reset --soft HEAD@{1}`
