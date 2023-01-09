@@ -126,3 +126,11 @@ This is very useful to get the first commit.
 
 # Undo "git commit --amend" instead "git commit"
 `git reset --soft HEAD@{1}`
+
+# Git push to upstream branch
+`git checkout -b [branch_name] upstream/branch_name`
+
+`git commit -m ...`
+
+`git push upstream fossil_dev`
+
