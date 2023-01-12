@@ -134,3 +134,23 @@ This is very useful to get the first commit.
 
 `git push upstream fossil_dev`
 
+# Git commit from one branch to another
+Step 1: fetch all branch to local.
+
+Step 2: Checkout to another branch.
+
+Step 3: Run `git reflog` to get the commit id you want to cherry-pick.
+
+<img width="1022" alt="image" src="https://user-images.githubusercontent.com/32226325/212032460-7400d4b4-9574-4d16-baa4-cf534c011088.png">
+
+Step 4: Git cherry-pick commit ID to current branch.
+
+`git cherry-pick [CID]`
+
+`git status`
+
+<img width="1101" alt="image" src="https://user-images.githubusercontent.com/32226325/212032358-9f17b320-21d2-4ce3-a416-e8c0af8c4a39.png">
+
+Step 5: Git push to desired branch
+
+`git push ...`
