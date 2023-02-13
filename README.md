@@ -154,3 +154,6 @@ Step 4: Git cherry-pick commit ID to current branch.
 Step 5: Git push to desired branch
 
 `git push ...`
+
+# Git diff ignore end of line
+`git diff  --ignore-space-at-eol`
