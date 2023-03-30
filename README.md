@@ -157,3 +157,6 @@ Step 5: Git push to desired branch
 
 # Git diff ignore end of line
 `git diff  --ignore-space-at-eol`
+
+# Check authen key when authen failed
+`ssh -vvv [server_addr] -i /path/to/authen_key`
