@@ -114,7 +114,7 @@ OR:
 # Get history of a file
 `git log -p -- [path_to_file]`
 
-`git log --follow -- [path_to_file]`
+`git log --follow [path_to_file]`
 
 # Change author for CL pushed
 `git commit --amend --reset-author --no-edit`
