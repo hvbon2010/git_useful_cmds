@@ -203,6 +203,6 @@ And then, ammend for HEAD commit by command:
 
 But if we have more older commits which don't have changeID, we will run commands:
 
-`git rebase -f <commit_id_no_change_id>~1 main-bes --exec "git commit --amend --no-edit"`
+`git rebase -f <commit_id_no_change_id>~1 <branch_name> --exec "git commit --amend --no-edit"`
 
 And push again.
