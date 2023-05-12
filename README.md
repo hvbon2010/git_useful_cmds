@@ -162,3 +162,47 @@ Step 5: Git push to desired branch
 
 # Check authen key when authen failed
 `ssh -vvv [server_addr] -i /path/to/authen_key`
+
+# Git auto add changeID for all commits (for gerrit with automaticcally insert a Change-ID)
+When you push more commits but failed, ex
+```
+Enumerating objects: 222, done.
+Counting objects: 100% (222/222), done.
+Delta compression using up to 48 threads
+Compressing objects: 100% (131/131), done.
+Writing objects: 100% (173/173), 34.64 KiB | 17.32 MiB/s, done.
+Total 173 (delta 125), reused 62 (delta 33), pack-reused 0
+remote: Resolving deltas: 100% (125/125)
+remote: Counting objects: 185121, done
+remote: Processing changes: refs: 1, done    
+remote: ERROR: commit d8950e4: missing Change-Id in message footer
+remote: 
+remote: Hint: to automatically insert a Change-Id, install the hook:
+remote:   gitdir=$(git rev-parse --git-dir); scp -p -P 5222 hvbon@gerrit-asia.fossil.com:hooks/commit-msg ${gitdir}/hooks/
+remote: (for OpenSSH >= 9.0 you need to add the flag '-O' to the scp command)
+remote: or, for http(s):
+remote:   f="$(git rev-parse --git-dir)/hooks/commit-msg"; curl -o "$f" https://gerrit-asia.fossil.com/tools/hooks/commit-msg ; chmod +x "$f"
+remote: and then amend the commit:
+remote:   git commit --amend --no-edit
+remote: Finally, push your changes again
+remote: 
+To ssh://gerrit-asia.fossil.com:5222/unicorn/zephyr/zephyr
+ ! [remote rejected]       HEAD -> refs/for/main-bes%private (commit d8950e4: missing Change-Id in message footer)
+error: failed to push some refs to 'ssh://gerrit-asia.fossil.com:5222/unicorn/zephyr/zephyr
+```
+
+So, we will install the hook:
+
+`gitdir=$(git rev-parse --git-dir); scp -p -P 5222 hvbon@gerrit-asia.fossil.com:hooks/commit-msg ${gitdir}/hooks/`
+
+`f="$(git rev-parse --git-dir)/hooks/commit-msg"; curl -o "$f" https://gerrit-asia.fossil.com/tools/hooks/commit-msg ; chmod +x "$f"`
+
+And then, ammend for HEAD commit by command:
+
+`git commit --amend --no-edit`
+
+But if we have more older commits which don't have changeID, we will run commands:
+
+`git rebase -f <commit_id_no_change_id>~1 main-bes --exec "git commit --amend --no-edit"`
+
+And push again.
