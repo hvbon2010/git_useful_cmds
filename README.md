@@ -111,6 +111,10 @@ OR:
 
 `git push <abc/xyz> HEAD:refs/for/<branch> -o topic=abc`
 
+Git add reviewer
+
+`git push <abc/xyz> HEAD:refs/for/<branch>%r=a@gmail.com,r=b@gmail.com`
+
 # Get history of a file
 `git log -p -- [path_to_file]`
 
@@ -206,3 +210,12 @@ But if we have more older commits which don't have changeID, we will run command
 `git rebase -f <commit_id_no_change_id>~1 <branch_name> --exec "git commit --amend --no-edit"`
 
 And push again.
+
+# Git update an attribute for all commits in a changes (gerrit)
+We have a list of commits in chains and you want add a topic, unmark private, add reviewers for all of them, how to do it.
+
+The first, you need to rebase all of commits in a change to create a new changeID for all of them.
+
+`git rebase -f <first_commit_id_of_commit_in_change>~1 <branch_name> --exec "git commit --amend --no-edit"`
+
+And then push it with add topic, unmark private, add reviewers you want.
