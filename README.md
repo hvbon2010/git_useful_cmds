@@ -167,6 +167,34 @@ Step 5: Git push to desired branch
 # Check authen key when authen failed
 `ssh -vvv [server_addr] -i /path/to/authen_key`
 
+For Example with github:
+`ssh -vvv git@github.com -i ~/.ssh/id_ed25519_github`
+
+```
+Hi hvbon2010! You've successfully authenticated, but GitHub does not provide shell access.
+debug2: channel 0: written 91 to efd 6
+debug3: channel 0: will not send data after close
+debug2: channel 0: obuf empty
+debug2: chan_shutdown_write: channel 0: (i3 o1 sock -1 wfd 5 efd 6 [write])
+debug2: channel 0: output drain -> closed
+debug2: channel 0: almost dead
+debug2: channel 0: gc: notify user
+debug2: channel 0: gc: user detached
+debug2: channel 0: send close
+debug3: send packet: type 97
+debug2: channel 0: is dead
+debug2: channel 0: garbage collecting
+debug1: channel 0: free: client-session, nchannels 1
+debug3: channel 0: status: The following connections are open:
+  #0 client-session (t4 r43 i3/0 o3/0 e[write]/0 fd -1/-1/6 sock -1 cc -1 io 0x00/0x08)
+
+debug3: send packet: type 1
+Connection to github.com closed.
+Transferred: sent 3044, received 3132 bytes, in 0.6 seconds
+Bytes per second: sent 5315.5, received 5469.2
+debug1: Exit status 1
+```
+
 # Git auto add changeID for all commits (for gerrit with automaticcally insert a Change-ID)
 When you push more commits but failed, ex
 ```
