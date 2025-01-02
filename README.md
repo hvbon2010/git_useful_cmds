@@ -247,3 +247,17 @@ The first, you need to rebase all of commits in a change to create a new changeI
 `git rebase -f <first_commit_id_of_commit_in_change>~1 <branch_name> --exec "git commit --amend --no-edit"`
 
 And then push it with add topic, unmark private, add reviewers you want.
+
+# Git delete local branch
+`git branch -D <branch_name>`
+
+# Git delete remote branch on github
+`git push origin --delete <branch_name>`
+
+# Git force update a branch when we need to commit another branch to already branch on github
+```
+git push origin --delete <branch_name>
+git checkout -b <branch_name>
+git push origin <branch_name>
+```
+
